@@ -130,11 +130,11 @@
                 class="font-serif text-2xl font-bold text-gold-500 hover:text-white transition-colors tracking-wide z-50">Stefan
                 Music Learn</a>
             <div class="hidden md:flex space-x-10">
-                <a href="/philosophy"
+                <a href="/philosophy/"
                     class="text-gray-300 hover:text-gold-500 transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-medium">Philosophy</a>
-                <a href="/mentor"
+                <a href="/mentor/"
                     class="text-gray-300 hover:text-gold-500 transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-medium">Mentor</a>
-                <a href="/instruments"
+                <a href="/instruments/"
                     class="text-gray-300 hover:text-gold-500 transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-medium">Instruments</a>
             </div>
             <button id="mobile-menu-btn"
@@ -147,58 +147,61 @@
         <div id="mobile-menu"
             class="hidden fixed inset-0 bg-gray-950 flex-col justify-center items-center space-y-8 md:hidden z-40">
             <a href="/" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">Home</a>
-            <a href="/philosophy" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">The
+            <a href="/philosophy/" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">The
                 Philosophy</a>
-            <a href="/mentor" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">The Mentor</a>
-            <a href="/instruments"
+            <a href="/mentor/" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">The Mentor</a>
+            <a href="/instruments/"
                 class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">Instruments</a>
         </div>
     </nav>
 
     <!-- Main Content -->
     <main class="flex-grow pt-20">
-        <!-- The Philosophy Section -->
-        <section class="relative py-24 px-4 md:px-8 z-10 fade-in-section">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Beyond Notes, We Build
-                        Artistry</h2>
-                    <div class="w-16 h-0.5 bg-gold-500 mx-auto"></div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
+        <!-- The Stefan Signature (Mentor) -->
+        <section class="relative py-20 px-4 md:px-8 z-10 fade-in-section">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+                <!-- Image Side (Asymmetric) -->
+                <div class="w-full md:w-1/2 relative group">
                     <div
-                        class="space-y-4 group p-6 border border-transparent hover:border-white/5 transition-all duration-500 rounded-lg">
-                        <div
-                            class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors duration-500 mx-auto md:mx-0">
-                            <span class="font-serif text-gold-500 text-xl italic">01</span>
-                        </div>
-                        <h3 class="font-serif text-2xl text-white">Custom Curriculum</h3>
-                        <p class="text-gray-400 font-light leading-relaxed">No two souls hear music the same way. We
-                            tailor your journey to match your unique pace, ensuring every lesson resonates personally.
+                        class="absolute inset-0 border border-gold-500/30 w-full h-full transform translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 z-0 transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2">
+                    </div>
+                    <div
+                        class="relative z-10 grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out overflow-hidden">
+                        <img src="/assets/hero_stefan.png" alt="Stefan Mentor"
+                            class="w-full h-auto object-cover shadow-2xl transform group-hover:scale-105 transition-transform duration-1000">
+                    </div>
+                </div>
+                <!-- Text Side -->
+                <div class="w-full md:w-1/2 space-y-8">
+                    <span class="text-gold-500 uppercase tracking-[0.2em] text-xs font-bold">A Word from Your
+                        Mentor</span>
+                    <blockquote class="font-serif text-3xl md:text-4xl text-white leading-snug">"Music is the shorthand
+                        of emotion. My goal isn't just to teach you an instrument, but to help you find your voice."
+                    </blockquote>
+                    <div class="pt-4 border-t border-white/5 mt-8">
+                        <p class="font-script text-5xl text-gold-500 rotate-[-5deg] opacity-90 inline-block p-4">Stefan
                         </p>
-                    </div>
-                    <div
-                        class="space-y-4 group p-6 border border-transparent hover:border-white/5 transition-all duration-500 rounded-lg">
-                        <div
-                            class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors duration-500 mx-auto md:mx-0">
-                            <span class="font-serif text-gold-500 text-xl italic">02</span>
-                        </div>
-                        <h3 class="font-serif text-2xl text-white">Performance Mindset</h3>
-                        <p class="text-gray-400 font-light leading-relaxed">Confidence is key. We teach you not just to
-                            play the notes accurately, but to command the stage and express emotion without fear.</p>
-                    </div>
-                    <div
-                        class="space-y-4 group p-6 border border-transparent hover:border-white/5 transition-all duration-500 rounded-lg">
-                        <div
-                            class="w-12 h-12 border border-white/10 rounded-full flex items-center justify-center mb-6 group-hover:border-gold-500 transition-colors duration-500 mx-auto md:mx-0">
-                            <span class="font-serif text-gold-500 text-xl italic">03</span>
-                        </div>
-                        <h3 class="font-serif text-2xl text-white">9 Years of Mastery</h3>
-                        <p class="text-gray-400 font-light leading-relaxed">A decade of professional experience
-                            distilled into your first lesson. Shortcut the struggle with proven techniques from a
-                            master.</p>
+                        <p class="text-gray-500 text-sm tracking-widest mt-2 uppercase">Principal Instructor</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Experience Counter (Interactive) -->
+        <section class="py-20 border-y border-white/5 bg-white/5 backdrop-blur-sm z-10 relative fade-in-section">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/5">
+                <div class="space-y-2 p-4"><span
+                        class="block text-4xl md:text-5xl font-serif text-white font-bold">9+</span><span
+                        class="text-gold-500 text-xs uppercase tracking-[0.2em]">Years of Teaching</span></div>
+                <div class="space-y-2 p-4"><span
+                        class="block text-4xl md:text-5xl font-serif text-white font-bold">500+</span><span
+                        class="text-gold-500 text-xs uppercase tracking-[0.2em]">Students Inspired</span></div>
+                <div class="space-y-2 p-4"><span
+                        class="block text-4xl md:text-5xl font-serif text-white font-bold">12+</span><span
+                        class="text-gold-500 text-xs uppercase tracking-[0.2em]">Instruments Mastered</span></div>
+                <div class="space-y-2 p-4"><span
+                        class="block text-4xl md:text-5xl font-serif text-white font-bold">Batam</span><span
+                        class="text-gold-500 text-xs uppercase tracking-[0.2em]">Based Excellence</span></div>
             </div>
         </section>
     </main>
