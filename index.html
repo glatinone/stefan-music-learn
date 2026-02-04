@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan Music Learn | Premium Music Education</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            500: '#C5A059',
+                            400: '#D4B87D',
+                            600: '#B08D45',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                        script: ['"Great Vibes"', 'cursive'],
+                    },
+                    animation: {
+                        'float': 'float 10s infinite ease-in-out',
+                        'float-delayed': 'float 15s infinite ease-in-out',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-20px) scale(1.05)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #C5A059;
+        }
+
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #C5A059;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: width 0.3s, height 0.3s, background-color 0.3s;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hovered {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(197, 160, 89, 0.2);
+            border-color: transparent;
+        }
+
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .grid-lines {
+            background-size: 100px 100px;
+            background-image: linear-gradient(to right, rgba(31, 41, 55, 0.15) 1px, transparent 1px);
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gray-950 text-gray-100 font-sans antialiased selection:bg-gold-500 selection:text-gray-950 overflow-x-hidden relative cursor-none md:cursor-none flex flex-col min-h-screen">
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+
+    <!-- Background Elements -->
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+        <div class="grid-lines absolute inset-0 w-full h-full opacity-30"></div>
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-gold-500/5 blur-[120px] rounded-full animate-float">
+        </div>
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-gold-500/5 blur-[150px] rounded-full animate-float-delayed">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md p-4 md:px-8 border-b border-white/5 transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="font-serif text-2xl font-bold text-gold-500 hover:text-white transition-colors tracking-wide z-50">Stefan
+                Music Learn</a>
+            <div class="hidden md:flex space-x-10">
+                <a href="philosophy.html"
+                    class="text-gray-300 hover:text-gold-500 transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-medium">Philosophy</a>
+                <a href="mentor.html"
+                    class="text-gray-300 hover:text-gold-500 transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-medium">Mentor</a>
+                <a href="instruments.html"
+                    class="text-gray-300 hover:text-gold-500 transition-colors duration-300 text-xs uppercase tracking-[0.2em] font-medium">Instruments</a>
+            </div>
+            <button id="mobile-menu-btn"
+                class="md:hidden text-gray-300 hover:text-gold-500 focus:outline-none z-50"><svg
+                    xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg></button>
+        </div>
+        <div id="mobile-menu"
+            class="hidden fixed inset-0 bg-gray-950 flex-col justify-center items-center space-y-8 md:hidden z-40">
+            <a href="index.html" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">Home</a>
+            <a href="philosophy.html" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">The
+                Philosophy</a>
+            <a href="mentor.html" class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">The Mentor</a>
+            <a href="instruments.html"
+                class="text-2xl font-serif text-white hover:text-gold-500 mobile-link">Instruments</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center p-4 md:p-8 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="assets/hero_stefan.png" alt="Stefan Playing Piano" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/50 to-gray-950/80"></div>
+        </div>
+
+        <div class="relative z-10 text-center max-w-5xl space-y-8 px-4 opacity-0 animate-fade-in-up">
+            <p class="text-gold-500 uppercase tracking-[0.3em] text-sm font-medium mb-4">Batam's Premier Music
+                Destination</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-none tracking-tight">
+                Master Your Instrument <br>
+                <span class="text-gold-500 font-normal italic">with Soul.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
+                9+ Years of Excellence. Defining the art of musical mastery for those who seek more than just notes.
+            </p>
+            <div class="pt-8">
+                <a href="mentor.html"
+                    class="inline-block px-12 py-4 bg-transparent border border-gold-500 text-gold-500 font-medium text-sm tracking-[0.2em] hover:bg-gold-500 hover:text-gray-950 transition-all duration-500 ease-in-out uppercase group">
+                    Begin Your Journey
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3">
+                </path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-4 border-t border-gray-800 bg-gray-950 z-10 relative mt-auto">
+        <div class="max-w-4xl mx-auto text-center space-y-8">
+            <h2 class="font-serif text-3xl text-white">Start Your Story</h2>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="https://wa.me/6289653062786" target="_blank"
+                    class="flex items-center space-x-3 px-8 py-3 bg-gray-800 border border-gray-700 text-white font-medium rounded-full hover:border-green-500 hover:text-green-400 transition-all duration-500 group"><span>WhatsApp</span></a>
+                <a href="https://instagram.com/stefan" target="_blank"
+                    class="flex items-center space-x-3 px-8 py-3 bg-gray-800 border border-gray-700 text-white font-medium rounded-full hover:border-gold-500 hover:text-gold-500 transition-all duration-500"><span>@stefan</span></a>
+            </div>
+            <p class="text-gray-600 text-xs tracking-widest pt-8 border-t border-gray-900">&copy; 2026 STEFAN MUSIC
+                LEARN. BATAM.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => { cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; });
+        document.querySelectorAll('a, button, .group').forEach(el => { el.addEventListener('mouseenter', () => cursor.classList.add('hovered')); el.addEventListener('mouseleave', () => cursor.classList.remove('hovered')); });
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } }); }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in-section').forEach(el => { observer.observe(el); });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileMenuBtn.addEventListener('click', () => { if (mobileMenu.classList.contains('hidden')) { mobileMenu.classList.remove('hidden'); mobileMenu.classList.add('flex'); } else { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); } });
+        mobileLinks.forEach(link => { link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); mobileMenu.classList.remove('flex'); }); });
+    </script>
+</body>
+
+</html>
